@@ -15,6 +15,7 @@
 		E1780490229595AF002DD7B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E178048E229595AF002DD7B4 /* LaunchScreen.storyboard */; };
 		E182EF6622959DB30015020F /* FactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E182EF6522959DB30015020F /* FactsViewController.swift */; };
 		E182EF6822959F370015020F /* FactsListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E182EF6722959F370015020F /* FactsListTableViewCell.swift */; };
+		E182EF6B2295C8890015020F /* FactsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E182EF6A2295C8890015020F /* FactsDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		E1780491229595AF002DD7B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E182EF6522959DB30015020F /* FactsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactsViewController.swift; sourceTree = "<group>"; };
 		E182EF6722959F370015020F /* FactsListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactsListTableViewCell.swift; sourceTree = "<group>"; };
+		E182EF6A2295C8890015020F /* FactsDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactsDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				E182EF6522959DB30015020F /* FactsViewController.swift */,
+				E182EF6A2295C8890015020F /* FactsDetailViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -219,6 +222,7 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-TestPOC/Pods-TestPOC-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/PKHUD/PKHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -226,6 +230,7 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PKHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -244,6 +249,7 @@
 				E1780486229595AE002DD7B4 /* AppDelegate.swift in Sources */,
 				E182EF6622959DB30015020F /* FactsViewController.swift in Sources */,
 				E182EF6822959F370015020F /* FactsListTableViewCell.swift in Sources */,
+				E182EF6B2295C8890015020F /* FactsDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
