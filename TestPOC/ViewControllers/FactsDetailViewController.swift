@@ -22,6 +22,7 @@ class FactsDetailViewController: UIViewController {
         self.updateUI()
     }
     
+    // MARK: - Update the detail view UI
     func updateUI() {
         self.descriptionLabel.text = selectedRow["description"] as? String ?? "No content available"
         self.factImageView.sd_setImage(with: URL(string: selectedRow["imageHref"] as? String ?? ""), placeholderImage: UIImage(named: "noimage.png"))

@@ -28,6 +28,7 @@ class FactsViewController: UIViewController {
             self.updateUI(result: jsonObject)
         }
     }
+    // MARK: - GET api called using Alamofire library
     
     func getFactsListData(completionHandler: @escaping ([String: AnyObject]) -> Void) {
         HUD.show(.progress)
@@ -51,6 +52,7 @@ class FactsViewController: UIViewController {
         }
     }
     
+    // MARK: - Update the UI on success of api call
     func updateUI(result: [String: AnyObject]) {
         if let navigationTitleText = result["title"] as? String {
             self.navigationItem.title = navigationTitleText
@@ -76,6 +78,8 @@ class FactsViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        
+        /* removing "Back" text on navigation left bar button item */
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
 }
