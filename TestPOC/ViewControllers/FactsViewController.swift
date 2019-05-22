@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import SDWebImage
 
 let factsEndPoint: String = "https://dl.dropboxusercontent.com/s/2iodh4vg0eortkl/facts.json"
 
@@ -88,6 +89,8 @@ extension FactsViewController: UITableViewDataSource {
         let row = rowsArray[indexPath.row]
         cell.titleLabel.text = row["title"] as? String ?? ""
         cell.descriptionLabel.text = row["description"] as? String ?? ""
+        cell.factImageView.sd_setImage(with: URL(string: row["imageHref"] as? String ?? ""), placeholderImage: UIImage(named: "noimage.png"))
+
         cell.selectionStyle = .none
         return cell
     }
