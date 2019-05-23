@@ -12,20 +12,20 @@ class FactsDetailViewController: UIViewController {
     
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet var factImageView: UIImageView!
-    var selectedRow: [String: AnyObject] = [:]
+    var selectedRow = Rows()
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = selectedRow["title"] as? String ?? ""
+        self.navigationItem.title = selectedRow.title ?? ""
         // Do any additional setup after loading the view.
         self.updateUI()
     }
     
     // MARK: - Update the detail view UI
     func updateUI() {
-        self.descriptionLabel.text = selectedRow["description"] as? String ?? "No content available"
-        self.factImageView.sd_setImage(with: URL(string: selectedRow["imageHref"] as? String ?? ""), placeholderImage: UIImage(named: "noimage.png"))
+        self.descriptionLabel.text = selectedRow.description ?? "No content available"
+        self.factImageView.sd_setImage(with: URL(string: selectedRow.imageUrl ?? ""), placeholderImage: UIImage(named: "noimage.png"))
     }
 
     /*

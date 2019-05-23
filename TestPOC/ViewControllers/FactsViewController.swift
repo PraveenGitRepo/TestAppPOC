@@ -12,25 +12,31 @@ import SDWebImage
 import PKHUD
 
 let factsEndPoint: String = "https://dl.dropboxusercontent.com/s/2iodh4vg0eortkl/facts.json"
+public typealias ResponseCompletionHandler = (_ error: NSError?, _ responseJSON: NSDictionary?) -> (Void)
 
 class FactsViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
-    var rowsArray: [[String: AnyObject]] = [[:]]
-    
+    //var rowsArray: [[String: AnyObject]] = [[:]]
+    var rowsArray = [Rows]()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 140
-        self.getFactsListData { (jsonObject) in
+        
+        //Call Facts List api
+        self.getFactsListData { (error, jsonObject)  in
             PKHUD.sharedHUD.hide()
-            self.updateUI(result: jsonObject)
+            if let object = jsonObject as? [String: AnyObject] {
+                self.updateUI(result: object)
+            }
         }
     }
-    // MARK: - GET api called using Alamofire library
+    // MARK: - GET api call using Alamofire library
     
-    func getFactsListData(completionHandler: @escaping ([String: AnyObject]) -> Void) {
+    func getFactsListData(completion: @escaping ResponseCompletionHandler) {
         HUD.show(.progress)
         AF.request(factsEndPoint, method: .get, parameters: nil, encoding: URLEncoding.default, headers: nil).responseString
             { response in
@@ -39,6 +45,7 @@ class FactsViewController: UIViewController {
                 case .failure(let error):
                     if let data = response.data {
                         HUD.show(.error)
+                        completion(error as NSError, nil)
                         print("Print Server Error: " + String(data: data, encoding: String.Encoding.utf8)!)
                     }
                     print(error)
@@ -46,20 +53,22 @@ class FactsViewController: UIViewController {
                     HUD.show(.success)
                     let jsonData = jsonResponse.data(using: .utf8)!
                     if let dictionary = try? JSONSerialization.jsonObject(with: jsonData, options: .mutableLeaves) {
-                        completionHandler(dictionary as? [String: AnyObject] ?? NSDictionary() as! [String : AnyObject])
+                        completion(nil, dictionary as? NSDictionary ?? NSDictionary())
                     }
                 }
         }
     }
     
     // MARK: - Update the UI on success of api call
+    
     func updateUI(result: [String: AnyObject]) {
         if let navigationTitleText = result["title"] as? String {
             self.navigationItem.title = navigationTitleText
         }
-        if let rowsArrayObject = result["rows"] as? [[String: AnyObject]] {
-            rowsArray = rowsArrayObject
-        }
+       
+        // Save json object to data model class
+        let facts = Facts.addFacts(jsonObject: result)
+        rowsArray = facts[0].rows
         tableView.reloadData()
     }
 
@@ -87,16 +96,15 @@ class FactsViewController: UIViewController {
 extension FactsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
        return rowsArray.count
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! FactsListTableViewCell
-        
         let row = rowsArray[indexPath.row]
-        cell.titleLabel.text = row["title"] as? String ?? ""
-        cell.descriptionLabel.text = row["description"] as? String ?? ""
-        cell.factImageView.sd_setImage(with: URL(string: row["imageHref"] as? String ?? ""), placeholderImage: UIImage(named: "noimage.png"))
-
+        cell.titleLabel.text = row.title ?? ""
+        cell.descriptionLabel.text = row.description ?? ""
+        cell.factImageView.sd_setImage(with: URL(string: row.imageUrl ?? ""), placeholderImage: UIImage(named: "noimage.png"))
         cell.selectionStyle = .none
         return cell
     }

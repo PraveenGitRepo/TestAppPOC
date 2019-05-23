@@ -8,8 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		B5DD5BE4FF9396A43E237A7E /* Pods_TestPOC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09B887B5205C3A83796EE2BA /* Pods_TestPOC.framework */; };
+		E16DBEB1229676CB000B0721 /* TestPOCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16DBEB0229676CB000B0721 /* TestPOCTests.swift */; };
+		E16DBEBB229681F3000B0721 /* FactsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16DBEBA229681F3000B0721 /* FactsList.swift */; };
 		E1780486229595AE002DD7B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1780485229595AE002DD7B4 /* AppDelegate.swift */; };
-		E1780488229595AE002DD7B4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1780487229595AE002DD7B4 /* ViewController.swift */; };
 		E178048B229595AE002DD7B4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1780489229595AE002DD7B4 /* Main.storyboard */; };
 		E178048D229595AF002DD7B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E178048C229595AF002DD7B4 /* Assets.xcassets */; };
 		E1780490229595AF002DD7B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E178048E229595AF002DD7B4 /* LaunchScreen.storyboard */; };
@@ -18,13 +19,26 @@
 		E182EF6B2295C8890015020F /* FactsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E182EF6A2295C8890015020F /* FactsDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		E16DBEB3229676CC000B0721 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E178047A229595AE002DD7B4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E1780481229595AE002DD7B4;
+			remoteInfo = TestPOC;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		09B887B5205C3A83796EE2BA /* Pods_TestPOC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TestPOC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		636DF60B7A508E3E904C9A8A /* Pods-TestPOC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestPOC.debug.xcconfig"; path = "Target Support Files/Pods-TestPOC/Pods-TestPOC.debug.xcconfig"; sourceTree = "<group>"; };
 		C95F2AF4C57B93551415C4C7 /* Pods-TestPOC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestPOC.release.xcconfig"; path = "Target Support Files/Pods-TestPOC/Pods-TestPOC.release.xcconfig"; sourceTree = "<group>"; };
+		E16DBEAE229676CB000B0721 /* TestPOCTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestPOCTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E16DBEB0229676CB000B0721 /* TestPOCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestPOCTests.swift; sourceTree = "<group>"; };
+		E16DBEB2229676CC000B0721 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E16DBEBA229681F3000B0721 /* FactsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactsList.swift; sourceTree = "<group>"; };
 		E1780482229595AE002DD7B4 /* TestPOC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestPOC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1780485229595AE002DD7B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E1780487229595AE002DD7B4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E178048A229595AE002DD7B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E178048C229595AF002DD7B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E178048F229595AF002DD7B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -35,6 +49,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		E16DBEAB229676CB000B0721 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E178047F229595AE002DD7B4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -63,10 +84,20 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		E16DBEAF229676CB000B0721 /* TestPOCTests */ = {
+			isa = PBXGroup;
+			children = (
+				E16DBEB0229676CB000B0721 /* TestPOCTests.swift */,
+				E16DBEB2229676CC000B0721 /* Info.plist */,
+			);
+			path = TestPOCTests;
+			sourceTree = "<group>";
+		};
 		E1780479229595AE002DD7B4 = {
 			isa = PBXGroup;
 			children = (
 				E1780484229595AE002DD7B4 /* TestPOC */,
+				E16DBEAF229676CB000B0721 /* TestPOCTests */,
 				E1780483229595AE002DD7B4 /* Products */,
 				ABB491A1D33A222C441D57E8 /* Pods */,
 				4A43E687FF9B3EFDD6144C67 /* Frameworks */,
@@ -77,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				E1780482229595AE002DD7B4 /* TestPOC.app */,
+				E16DBEAE229676CB000B0721 /* TestPOCTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -88,7 +120,6 @@
 				E182EF6322959D850015020F /* Models */,
 				E182EF6222959D770015020F /* ViewControllers */,
 				E1780485229595AE002DD7B4 /* AppDelegate.swift */,
-				E1780487229595AE002DD7B4 /* ViewController.swift */,
 				E178048C229595AF002DD7B4 /* Assets.xcassets */,
 				E178048E229595AF002DD7B4 /* LaunchScreen.storyboard */,
 				E1780491229595AF002DD7B4 /* Info.plist */,
@@ -108,6 +139,7 @@
 		E182EF6322959D850015020F /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				E16DBEBA229681F3000B0721 /* FactsList.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -124,6 +156,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		E16DBEAD229676CB000B0721 /* TestPOCTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E16DBEB5229676CC000B0721 /* Build configuration list for PBXNativeTarget "TestPOCTests" */;
+			buildPhases = (
+				E16DBEAA229676CB000B0721 /* Sources */,
+				E16DBEAB229676CB000B0721 /* Frameworks */,
+				E16DBEAC229676CB000B0721 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E16DBEB4229676CC000B0721 /* PBXTargetDependency */,
+			);
+			name = TestPOCTests;
+			productName = TestPOCTests;
+			productReference = E16DBEAE229676CB000B0721 /* TestPOCTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		E1780481229595AE002DD7B4 /* TestPOC */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = E1780494229595AF002DD7B4 /* Build configuration list for PBXNativeTarget "TestPOC" */;
@@ -153,6 +203,10 @@
 				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = Praveen;
 				TargetAttributes = {
+					E16DBEAD229676CB000B0721 = {
+						CreatedOnToolsVersion = 10.2.1;
+						TestTargetID = E1780481229595AE002DD7B4;
+					};
 					E1780481229595AE002DD7B4 = {
 						CreatedOnToolsVersion = 10.2;
 					};
@@ -172,11 +226,19 @@
 			projectRoot = "";
 			targets = (
 				E1780481229595AE002DD7B4 /* TestPOC */,
+				E16DBEAD229676CB000B0721 /* TestPOCTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		E16DBEAC229676CB000B0721 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E1780480229595AE002DD7B4 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -241,19 +303,35 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		E16DBEAA229676CB000B0721 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E16DBEB1229676CB000B0721 /* TestPOCTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E178047E229595AE002DD7B4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E1780488229595AE002DD7B4 /* ViewController.swift in Sources */,
 				E1780486229595AE002DD7B4 /* AppDelegate.swift in Sources */,
 				E182EF6622959DB30015020F /* FactsViewController.swift in Sources */,
 				E182EF6822959F370015020F /* FactsListTableViewCell.swift in Sources */,
 				E182EF6B2295C8890015020F /* FactsDetailViewController.swift in Sources */,
+				E16DBEBB229681F3000B0721 /* FactsList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E16DBEB4229676CC000B0721 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E1780481229595AE002DD7B4 /* TestPOC */;
+			targetProxy = E16DBEB3229676CC000B0721 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		E1780489229595AE002DD7B4 /* Main.storyboard */ = {
@@ -275,6 +353,44 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		E16DBEB6229676CC000B0721 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = TestPOCTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Test.TestPOCTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TestPOC.app/TestPOC";
+			};
+			name = Debug;
+		};
+		E16DBEB7229676CC000B0721 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = TestPOCTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Test.TestPOCTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TestPOC.app/TestPOC";
+			};
+			name = Release;
+		};
 		E1780492229595AF002DD7B4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -430,6 +546,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		E16DBEB5229676CC000B0721 /* Build configuration list for PBXNativeTarget "TestPOCTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E16DBEB6229676CC000B0721 /* Debug */,
+				E16DBEB7229676CC000B0721 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		E178047D229595AE002DD7B4 /* Build configuration list for PBXProject "TestPOC" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
