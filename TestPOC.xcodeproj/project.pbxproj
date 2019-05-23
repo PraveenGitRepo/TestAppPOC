@@ -11,6 +11,8 @@
 		E16DBEB1229676CB000B0721 /* TestPOCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16DBEB0229676CB000B0721 /* TestPOCTests.swift */; };
 		E16DBEBB229681F3000B0721 /* FactsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16DBEBA229681F3000B0721 /* FactsList.swift */; };
 		E16DBEBD2296A19F000B0721 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16DBEBC2296A19F000B0721 /* Reachability.swift */; };
+		E16DBEBF2296BCA4000B0721 /* FactsViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16DBEBE2296BCA4000B0721 /* FactsViewControllerTest.swift */; };
+		E16DBEC12296C6E5000B0721 /* FactsDetailViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16DBEC02296C6E5000B0721 /* FactsDetailViewControllerTest.swift */; };
 		E1780486229595AE002DD7B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1780485229595AE002DD7B4 /* AppDelegate.swift */; };
 		E178048B229595AE002DD7B4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1780489229595AE002DD7B4 /* Main.storyboard */; };
 		E178048D229595AF002DD7B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E178048C229595AF002DD7B4 /* Assets.xcassets */; };
@@ -39,6 +41,8 @@
 		E16DBEB2229676CC000B0721 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E16DBEBA229681F3000B0721 /* FactsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactsList.swift; sourceTree = "<group>"; };
 		E16DBEBC2296A19F000B0721 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		E16DBEBE2296BCA4000B0721 /* FactsViewControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactsViewControllerTest.swift; sourceTree = "<group>"; };
+		E16DBEC02296C6E5000B0721 /* FactsDetailViewControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactsDetailViewControllerTest.swift; sourceTree = "<group>"; };
 		E1780482229595AE002DD7B4 /* TestPOC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestPOC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1780485229595AE002DD7B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E178048A229595AE002DD7B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -90,6 +94,8 @@
 			isa = PBXGroup;
 			children = (
 				E16DBEB0229676CB000B0721 /* TestPOCTests.swift */,
+				E16DBEBE2296BCA4000B0721 /* FactsViewControllerTest.swift */,
+				E16DBEC02296C6E5000B0721 /* FactsDetailViewControllerTest.swift */,
 				E16DBEB2229676CC000B0721 /* Info.plist */,
 			);
 			path = TestPOCTests;
@@ -310,6 +316,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E16DBEC12296C6E5000B0721 /* FactsDetailViewControllerTest.swift in Sources */,
+				E16DBEBF2296BCA4000B0721 /* FactsViewControllerTest.swift in Sources */,
 				E16DBEB1229676CB000B0721 /* TestPOCTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

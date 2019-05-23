@@ -11,13 +11,12 @@ import Alamofire
 import SDWebImage
 import PKHUD
 
-let factsEndPoint: String = "https://dl.dropboxusercontent.com/s/2iodh4vg0eortkl/facts.json"
+public let factsEndPoint: String = "https://dl.dropboxusercontent.com/s/2iodh4vg0eortkl/facts.json"
 public typealias ResponseCompletionHandler = (_ error: NSError?, _ responseJSON: NSDictionary?) -> (Void)
 
 class FactsViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
-    //var rowsArray: [[String: AnyObject]] = [[:]]
     var rowsArray = [Rows]()
 
     override func viewDidLoad() {
@@ -27,7 +26,7 @@ class FactsViewController: UIViewController {
         tableView.estimatedRowHeight = 140
         
         //Call Facts List api
-        self.getFactsListData { (error, jsonObject)  in
+        self.getFactsListData(endPointUrl: factsEndPoint) { (error, jsonObject)  in
             PKHUD.sharedHUD.hide()
             if let object = jsonObject as? [String: AnyObject] {
                 self.updateUI(result: object)
@@ -36,7 +35,7 @@ class FactsViewController: UIViewController {
     }
     // MARK: - GET api call using Alamofire library
     
-    func getFactsListData(completion: @escaping ResponseCompletionHandler) {
+    func getFactsListData(endPointUrl: String?, completion: @escaping ResponseCompletionHandler) {
         if Connectivity.isConnectedToInternet {
             HUD.show(.progress)
             AF.request(factsEndPoint, method: .get, parameters: nil, encoding: URLEncoding.default, headers: nil).responseString
@@ -102,15 +101,16 @@ class FactsViewController: UIViewController {
 extension FactsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
        return rowsArray.count
-        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! FactsListTableViewCell
-        let row = rowsArray[indexPath.row]
-        cell.titleLabel.text = row.title ?? ""
-        cell.descriptionLabel.text = row.description ?? ""
-        cell.factImageView.sd_setImage(with: URL(string: row.imageUrl ?? ""), placeholderImage: UIImage(named: "noimage.png"))
+        if rowsArray.count > 0 {
+            let row = rowsArray[indexPath.row]
+            cell.titleLabel.text = row.title ?? ""
+            cell.descriptionLabel.text = row.description ?? ""
+            cell.factImageView.sd_setImage(with: URL(string: row.imageUrl ?? ""), placeholderImage: UIImage(named: "noimage.png"))
+        }
         cell.selectionStyle = .none
         return cell
     }

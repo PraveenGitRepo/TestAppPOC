@@ -13,7 +13,7 @@
         <!--Facts View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="FactsViewController" customModule="TestPOC" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FactsList" id="BYZ-38-t0r" customClass="FactsViewController" customModule="TestPOC" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -96,7 +96,7 @@
         <!--Facts Detail View Controller-->
         <scene sceneID="LYh-MP-9C5">
             <objects>
-                <viewController id="xYa-z5-in1" customClass="FactsDetailViewController" customModule="TestPOC" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FactsDetail" id="xYa-z5-in1" customClass="FactsDetailViewController" customModule="TestPOC" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4wI-3W-Gij">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
