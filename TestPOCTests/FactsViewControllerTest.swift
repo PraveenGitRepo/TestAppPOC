@@ -67,11 +67,15 @@ class FactsViewControllerTest: XCTestCase {
     }
     
     func testGetFactsApi() {
+        let e = expectation(description: "ApiCalled")
         factsVC.getFactsListData(endPointUrl: factsEndPoint, completion: { (error, jsonObject) in
             debugPrint("Finished in unit test!!!")
             debugPrint("----> Unit Test Response Data \(self.factsVC.rowsArray)")
+            e.fulfill()
         })
+        waitForExpectations(timeout: 10.0, handler: nil)
     }
+    
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measure {
