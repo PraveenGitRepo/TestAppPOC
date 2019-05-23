@@ -37,25 +37,31 @@ class FactsViewController: UIViewController {
     // MARK: - GET api call using Alamofire library
     
     func getFactsListData(completion: @escaping ResponseCompletionHandler) {
-        HUD.show(.progress)
-        AF.request(factsEndPoint, method: .get, parameters: nil, encoding: URLEncoding.default, headers: nil).responseString
-            { response in
-                switch response.result
-                {
-                case .failure(let error):
-                    if let data = response.data {
-                        HUD.show(.error)
-                        completion(error as NSError, nil)
-                        print("Print Server Error: " + String(data: data, encoding: String.Encoding.utf8)!)
+        if Connectivity.isConnectedToInternet {
+            HUD.show(.progress)
+            AF.request(factsEndPoint, method: .get, parameters: nil, encoding: URLEncoding.default, headers: nil).responseString
+                { response in
+                    switch response.result
+                    {
+                    case .failure(let error):
+                        if let data = response.data {
+                            HUD.show(.error)
+                            completion(error as NSError, nil)
+                            print("Print Server Error: " + String(data: data, encoding: String.Encoding.utf8)!)
+                        }
+                        print(error)
+                    case .success(let jsonResponse):
+                        HUD.show(.success)
+                        let jsonData = jsonResponse.data(using: .utf8)!
+                        if let dictionary = try? JSONSerialization.jsonObject(with: jsonData, options: .mutableLeaves) {
+                            completion(nil, dictionary as? NSDictionary ?? NSDictionary())
+                        }
                     }
-                    print(error)
-                case .success(let jsonResponse):
-                    HUD.show(.success)
-                    let jsonData = jsonResponse.data(using: .utf8)!
-                    if let dictionary = try? JSONSerialization.jsonObject(with: jsonData, options: .mutableLeaves) {
-                        completion(nil, dictionary as? NSDictionary ?? NSDictionary())
-                    }
-                }
+            }
+        } else {
+            let connectiviyAlert = UIAlertController(title: "Alert", message: "Please check your internet connection.", preferredStyle: UIAlertController.Style.alert)
+            connectiviyAlert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+            self.present(connectiviyAlert, animated: true, completion: nil)
         }
     }
     

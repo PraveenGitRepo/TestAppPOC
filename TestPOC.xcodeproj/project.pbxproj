@@ -10,6 +10,7 @@
 		B5DD5BE4FF9396A43E237A7E /* Pods_TestPOC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09B887B5205C3A83796EE2BA /* Pods_TestPOC.framework */; };
 		E16DBEB1229676CB000B0721 /* TestPOCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16DBEB0229676CB000B0721 /* TestPOCTests.swift */; };
 		E16DBEBB229681F3000B0721 /* FactsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16DBEBA229681F3000B0721 /* FactsList.swift */; };
+		E16DBEBD2296A19F000B0721 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16DBEBC2296A19F000B0721 /* Reachability.swift */; };
 		E1780486229595AE002DD7B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1780485229595AE002DD7B4 /* AppDelegate.swift */; };
 		E178048B229595AE002DD7B4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1780489229595AE002DD7B4 /* Main.storyboard */; };
 		E178048D229595AF002DD7B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E178048C229595AF002DD7B4 /* Assets.xcassets */; };
@@ -37,6 +38,7 @@
 		E16DBEB0229676CB000B0721 /* TestPOCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestPOCTests.swift; sourceTree = "<group>"; };
 		E16DBEB2229676CC000B0721 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E16DBEBA229681F3000B0721 /* FactsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactsList.swift; sourceTree = "<group>"; };
+		E16DBEBC2296A19F000B0721 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		E1780482229595AE002DD7B4 /* TestPOC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestPOC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1780485229595AE002DD7B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E178048A229595AE002DD7B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 				E182EF6322959D850015020F /* Models */,
 				E182EF6222959D770015020F /* ViewControllers */,
 				E1780485229595AE002DD7B4 /* AppDelegate.swift */,
+				E16DBEBC2296A19F000B0721 /* Reachability.swift */,
 				E178048C229595AF002DD7B4 /* Assets.xcassets */,
 				E178048E229595AF002DD7B4 /* LaunchScreen.storyboard */,
 				E1780491229595AF002DD7B4 /* Info.plist */,
@@ -317,6 +320,7 @@
 			files = (
 				E1780486229595AE002DD7B4 /* AppDelegate.swift in Sources */,
 				E182EF6622959DB30015020F /* FactsViewController.swift in Sources */,
+				E16DBEBD2296A19F000B0721 /* Reachability.swift in Sources */,
 				E182EF6822959F370015020F /* FactsListTableViewCell.swift in Sources */,
 				E182EF6B2295C8890015020F /* FactsDetailViewController.swift in Sources */,
 				E16DBEBB229681F3000B0721 /* FactsList.swift in Sources */,
