@@ -12,10 +12,23 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var navigationController: UINavigationController?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        window = UIWindow(frame: UIScreen.main.bounds)
+        
+        if let window = window {
+            let testFactsVC = TestFactsViewController()
+            navigationController = UINavigationController(rootViewController: testFactsVC)
+            navigationController?.view.backgroundColor = UIColor.white
+            navigationController?.navigationBar.barTintColor = UIColor.blue
+            navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
+            window.rootViewController = navigationController
+            window.makeKeyAndVisible()
+        }
+        
         return true
     }
 

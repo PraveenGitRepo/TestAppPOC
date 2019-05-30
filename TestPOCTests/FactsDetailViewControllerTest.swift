@@ -11,26 +11,22 @@ import XCTest
 @testable import TestPOC
 class FactsDetailViewControllerTest: XCTestCase {
 
-    var factsDetailVC: FactsDetailViewController?
+    var factsDetailVC = TestFactsDetailViewController()
     
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
-        factsDetailVC = FactsDetailViewController()
-        let storyboard = UIStoryboard(name: "Main", bundle:Bundle(for: FactsDetailViewController.self))
-        factsDetailVC  = (storyboard.instantiateViewController(withIdentifier: "FactsDetail") as! FactsDetailViewController)
-        _ = factsDetailVC?.view
-        factsDetailVC?.viewDidLoad()
-        factsDetailVC?.didReceiveMemoryWarning()
+        _ = factsDetailVC.view
+        factsDetailVC.viewDidLoad()
+        factsDetailVC.didReceiveMemoryWarning()
     }
 
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
-        factsDetailVC = nil
     }
 
     func testOutlets() {
-        XCTAssertNotNil(factsDetailVC?.descriptionLabel, "Outlets can't be nil")
-        XCTAssertNotNil(factsDetailVC?.factImageView, "Outlets can't be nil")
+        XCTAssertNotNil(factsDetailVC.factDescriptionLabel, "can't be nil")
+        XCTAssertNotNil(factsDetailVC.factImageView, "can't be nil")
     }
     
     func testExample() {

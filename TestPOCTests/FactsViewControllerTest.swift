@@ -11,17 +11,15 @@ import XCTest
 @testable import TestPOC
 class FactsViewControllerTest: XCTestCase {
     
-    var factsVC = FactsViewController()
+    var factsVC = TestFactsViewController()
     var subViews: [UIView] = []
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
-        let storyboard = UIStoryboard(name: "Main", bundle:Bundle(for: FactsViewController.self))
-        factsVC  = (storyboard.instantiateViewController(withIdentifier: "FactsList") as! FactsViewController)
         _ = factsVC.view
         factsVC.viewDidLoad()
         subViews = factsVC.view.subviews
-        factsVC.tableView.reloadData()
+        factsVC.factsTableView.reloadData()
         factsVC.didReceiveMemoryWarning()
     }
 
@@ -34,45 +32,33 @@ class FactsViewControllerTest: XCTestCase {
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
     
-    func testFactsListStoryBoard() {
-        //Facts List StoryBoard related Unit test case
-        let storyboard = UIStoryboard(name: "Main", bundle:Bundle(for: FactsViewController.self))
-        XCTAssertNotNil(storyboard, "Facts List Storyboard file not found")
-    }
-
-    func testFactsViewControllerConnected() {
-        XCTAssertNotNil(factsVC, "FactsVC is not connected with a Storyboard")
-    }
-    
     func testFactsListVCIsComposedOfUITableView() {
-        XCTAssertTrue(subViews.contains(factsVC.tableView), "ViewController under test is not composed of a UITableView")
+        XCTAssertTrue(subViews.contains(factsVC.factsTableView), "ViewController under test is not composed of a UITableView")
     }
     
     func testOutlets() {
-        XCTAssertNotNil(factsVC.tableView, "Outlets can't be nil")
+        XCTAssertNotNil(factsVC.factsTableView, "Outlets can't be nil")
     }
     
     func testConformsDataSourceAndDelegate() {
         XCTAssert((factsVC.conforms(to: UITableViewDataSource.self)), "does not conform to this protocol")
         XCTAssert((factsVC.responds(to: #selector(UITableViewDataSource.tableView(_:numberOfRowsInSection:)))), "does not respond to this seelctor")
         XCTAssert((factsVC.responds(to: #selector(UITableViewDataSource.tableView(_:cellForRowAt:)))), "does not respond to this seelctor")
+        XCTAssert((factsVC.responds(to: #selector(UITableViewDelegate.tableView(_:didSelectRowAt:)))), "does not respond to this seelctor")
     }
     
     func testTableCellforRowAtIndexPath() {
-        guard let tableViewList = factsVC.tableView else {
-            return
-        }
-        let cellTable = factsVC.tableView(tableViewList, cellForRowAt: IndexPath(row: 0, section: 0))
+        let cellTable = factsVC.tableView(factsVC.factsTableView, cellForRowAt: IndexPath(row: 0, section: 0))
         XCTAssert(cellTable.isKind(of: UITableViewCell.self) == true, "factsListVC - UITableViewCell is not created")
     }
     
     func testGetFactsApi() {
         let e = expectation(description: "ApiCalled")
-        factsVC.getFactsListData(endPointUrl: factsEndPoint, completion: { (error, jsonObject) in
+        RequestManager.shared.getFactsListData(controller: factsVC, endPointUrl: factsEndPoint) { (error, jsonObject) -> (Void) in
             debugPrint("Finished in unit test!!!")
             debugPrint("----> Unit Test Response Data \(self.factsVC.rowsArray)")
             e.fulfill()
-        })
+        }
         waitForExpectations(timeout: 10.0, handler: nil)
     }
     
