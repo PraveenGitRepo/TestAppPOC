@@ -23,8 +23,14 @@ class TestFactsViewController: UIViewController {
         //Call Facts List api
         RequestManager.shared.getFactsListData(controller: self, endPointUrl: factsEndPoint) { (error, jsonObject) -> (Void) in
             PKHUD.sharedHUD.hide()
-            if let object = jsonObject as? [String: AnyObject] {
-               self.updateUI(result: object)
+            
+            guard let data = jsonObject else { return }
+            do {
+                let decoder = JSONDecoder()
+                let objects = try decoder.decode(Facts.self, from: data)
+                self.updateUI(result: objects)
+
+            } catch let err {
             }
         }
     }
@@ -32,36 +38,27 @@ class TestFactsViewController: UIViewController {
 
     // MARK: - Update the UI on success of api call
     
-    func updateUI(result: [String: AnyObject]) {
-        if let navigationTitleText = result["title"] as? String {
-            self.navigationItem.title = navigationTitleText
-        }
+    func updateUI(result: Facts) {
+        self.title = result.title
         
         // Save json object to data model class
-        let facts = Facts.addFacts(jsonObject: result)
-        rowsArray = facts[0].rows
+        rowsArray = result.rows
         factsTableView.reloadData()
     }
     
     func setUpTableview() {
-        let screenSize: CGRect = UIScreen.main.bounds
         
-        let screenWidth = screenSize.width
-        let screenHeight = screenSize.height
-        
-        factsTableView.frame = CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight);
+        factsTableView.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(factsTableView)
+
+        factsTableView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 5).isActive = true
+        factsTableView.topAnchor.constraint(equalTo: view.topAnchor, constant: 60).isActive = true
+        factsTableView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -1.0).isActive = true
+        factsTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -5.0).isActive = true
+
         factsTableView.dataSource = self
         factsTableView.delegate = self
         factsTableView.register(TestFacstsTableViewCell.self, forCellReuseIdentifier: "Cell")
-        self.view.addSubview(factsTableView)
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        let screenSize: CGRect = UIScreen.main.bounds
-        let screenWidth = screenSize.width
-        let screenHeight = screenSize.height
-        factsTableView.frame = CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight);
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -79,10 +76,8 @@ extension TestFactsViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! TestFacstsTableViewCell
-        if rowsArray.count > 0 {
-            let row = rowsArray[indexPath.row]
-            cell.row = row
-        }
+        let row = rowsArray[indexPath.row]
+        cell.row = row
         cell.selectionStyle = .none
         return cell
     }

@@ -11,7 +11,7 @@ import Alamofire
 import PKHUD
 
 public let factsEndPoint: String = "https://dl.dropboxusercontent.com/s/2iodh4vg0eortkl/facts.json"
-public typealias ResponseCompletionHandler = (_ error: NSError?, _ responseJSON: NSDictionary?) -> (Void)
+public typealias ResponseCompletionHandler = (_ error: NSError?, _ responseJSON: Data?) -> (Void)
 
 class RequestManager {
     static let shared = RequestManager()
@@ -23,22 +23,17 @@ class RequestManager {
     func getFactsListData(controller: UIViewController?, endPointUrl: String?, completion: @escaping ResponseCompletionHandler) {
         if Connectivity.isConnectedToInternet {
             HUD.show(.progress)
-            AF.request(factsEndPoint, method: .get, parameters: nil, encoding: URLEncoding.default, headers: nil).responseString
+            Alamofire.request(factsEndPoint, method: .get, parameters: nil, encoding: URLEncoding.default, headers: nil).responseString
                 { response in
                     switch response.result
                     {
                     case .failure(let error):
-                        if let data = response.data {
                             HUD.show(.error)
                             completion(error as NSError, nil)
-                            print("Print Server Error: " + String(data: data, encoding: String.Encoding.utf8)!)
-                        }
-                        print(error)
                     case .success(let jsonResponse):
                         HUD.show(.success)
-                        let jsonData = jsonResponse.data(using: .utf8)!
-                        if let dictionary = try? JSONSerialization.jsonObject(with: jsonData, options: .mutableLeaves) {
-                            completion(nil, dictionary as? NSDictionary ?? NSDictionary())
+                        if let jsonData = jsonResponse.data(using: .utf8) {
+                            completion(nil, jsonData)
                         }
                     }
             }

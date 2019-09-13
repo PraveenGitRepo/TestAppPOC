@@ -7,7 +7,7 @@ target 'TestPOC' do
 
   # Pods for TestPOC
 
-	pod 'Alamofire', '~> 5.0.0-beta.5'
-  pod 'SDWebImage', '~> 5.0'
+  pod 'Alamofire', '~> 4.0'
+  pod 'SDWebImage', '~>4.0'
   pod 'PKHUD', '~> 5.0'
 end

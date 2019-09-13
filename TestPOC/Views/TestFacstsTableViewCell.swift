@@ -26,7 +26,7 @@ class TestFacstsTableViewCell: UITableViewCell {
         didSet {
             factsNameLabel.text = row?.title
             factsDescriptionLabel.text = row?.description
-            factImage.sd_setImage(with: URL(string: row?.imageUrl ?? ""), placeholderImage: UIImage(named: "noimage.png"))
+            factImage.sd_setImage(with: URL(string: row?.imageHref ?? ""), placeholderImage: UIImage(named: "noimage.png"))
         }
     }
 

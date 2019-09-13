@@ -10,11 +10,11 @@ import UIKit
 
 class TestFactsDetailViewController: UIViewController {
 
-    var selectedRow = Rows()
+    var selectedRow: Rows?
 
     lazy var factImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.sd_setImage(with: URL(string: selectedRow.imageUrl ?? ""), placeholderImage: UIImage(named: "noimage.png"))
+        imageView.sd_setImage(with: URL(string: selectedRow?.imageHref ?? ""), placeholderImage: UIImage(named: "noimage.png"))
         imageView.contentMode = .scaleAspectFit
         imageView.clipsToBounds = true
         return imageView
@@ -22,10 +22,10 @@ class TestFactsDetailViewController: UIViewController {
     
     lazy var factDescriptionLabel: UILabel = {
         let descLabel = UILabel()
-        if selectedRow.description == "" || selectedRow.description == nil {
+        if selectedRow?.description == "" || selectedRow?.description == nil {
             descLabel.text = "No Content Available"
         } else {
-            descLabel.text = selectedRow.description
+            descLabel.text = selectedRow?.description
         }
         descLabel.numberOfLines = 0
         return descLabel
@@ -35,7 +35,7 @@ class TestFactsDetailViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.title = selectedRow.title
+        self.title = selectedRow?.title
         self.setUpView()
     }
     
